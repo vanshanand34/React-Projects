@@ -1,9 +1,23 @@
 import React from "react";
-import { PiBookOpenTextLight } from "react-icons/pi";
-import { BiUserCircle } from "react-icons/bi";
-import { DeleteBook } from "./DeleteBook";
+import axios from "axios";
 
-export function DeleteModal({ onClose , deleteBook}) {
+export function DeleteModal({ bookId, onClose }) {
+
+    function deleteBook() {
+        axios
+            .post(`http://localhost:8080/books/delete/${bookId}`)
+            .then(res => {
+                console.log(res);
+                window.location.reload();
+            })
+            .catch(err => {
+                console.error(err);
+                alert("Some error occurred while deleting the book record")
+            })
+        onClose();
+
+    }
+
     return (
         <div className="fixed bg-black/60 top-0 bottom-0 left-0 right-0  flex justify-center items-center z-50">
             <div className="p-2 w-[60vw] md:w-[40vw] text-xs lg:text-lg rounded-lg bg-white border border-sky-400 ">
