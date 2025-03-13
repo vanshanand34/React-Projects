@@ -8,6 +8,8 @@ import { BsInfoCircle } from "react-icons/bs";
 import { BookCard } from "./BookCard";
 import axios from "axios";
 import { DeleteModal } from "./DeleteModal";
+import {TableView} from "./TableView";
+import { CardView } from "./CardView";
 
 export function Home() {
     const [books, setBooks] = useState([]);
@@ -61,91 +63,11 @@ export function Home() {
                         <div className="h-[60vh] items-center flex justify-center p-8"><Spinner /></div> :
                         (
                             displayType === "table" ?
-                                <BookTable books={books} /> :
-                                <BookCards books={books} />
+                                <TableView books={books} /> :
+                                <CardView books={books} />
                         )
                 }
             </div>
-        </div>
-    )
-}
-
-
-function BookTable({ books }) {
-    const [deleteBookId, setDeleteBookId] = useState(0);
-
-    function deleteBook(id) {
-        axios
-            .post(`http://localhost:8080/books/delete/${id}`)
-            .then(res => {
-                console.log(res);
-                setDeleteBookId(0);
-                window.location.reload();
-            })
-            .catch(err => {
-                console.error(err);
-                alert("Some error occurred while deleting the book record")
-            })
-
-    }
-
-
-    return (
-        <>
-            <table className="w-full border-separate border-spacing-2 p-4">
-                <thead>
-                    <tr>
-                        <th className="border border-slate-600 rounded-md p-1">No</th>
-                        <th className="border border-slate-600 rounded-md p-1">Title</th>
-                        <th className="border border-slate-600 rounded-md max-md:hidden p-1">Author</th>
-                        <th className="border border-slate-600 rounded-md max-md:hidden p-1">Published Year</th>
-                        <th className="border border-slate-600 rounded-md">Operations</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {books.map((book, index) =>
-                        <tr key={book._id}>
-                            <td className="border border-slate-600 rounded-md text-center p-1">{index + 1}</td>
-                            <td className="border border-slate-600 rounded-md text-center p-1">{book.title}</td>
-                            <td className="border border-slate-600 rounded-md text-center max-md:hidden p-1">{book.author}</td>
-                            <td className="border border-slate-600 rounded-md text-center max-md:hidden p-1">{book.publishedYear}</td>
-                            <td className="border border-slate-600 rounded-md text-center p-1">
-                                <div className="flex justify-center items-center gap-x-4">
-                                    <Link to={`books/show/${book._id}`}>
-                                        <BsInfoCircle className="text-xl text-slate-900 hover:-translate-y-0.5" />
-                                    </Link>
-                                    <Link to={`books/edit/${book._id}`}>
-                                        <AiOutlineEdit className="text-xl text-blue-700" />
-                                    </Link>
-
-                                    <MdDeleteOutline
-                                        className="text-xl text-red-500 cursor-pointer"
-                                        onClick={() => setDeleteBookId(book._id)}
-                                    />
-                                </div>
-                            </td>
-                        </tr>
-                    )}
-
-                </tbody>
-            </table>
-            {
-                deleteBookId !== 0 &&
-                <DeleteModal
-                    onClose={() => setDeleteBookId(0)}
-                    deleteBook={() => deleteBook(deleteBookId)}
-                />
-            }
-        </>
-    )
-}
-
-function BookCards({ books }) {
-    return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-2 py-8">
-            {books.map(book =>
-                <BookCard book={book} key={book._id} />
-            )}
         </div>
     )
 }
