@@ -40,7 +40,7 @@ export function CreateBook() {
     return (
         <>
             <div className="p-4">
-                <div className="flex p-4 pb-20 gap-x-6">
+                <div className="flex p-6 mb-20 gap-x-6 bg-gray-100">
                     <BackButton />
                     <h3 className="text-3xl">
                         Create Book
@@ -48,7 +48,7 @@ export function CreateBook() {
                 </div>
                 <div>
                     {
-                            isLoading ?
+                        isLoading ?
                             <div className="h-[60vh] items-center flex justify-center p-8"><Spinner /></div> :
 
                             <form
@@ -63,21 +63,21 @@ export function CreateBook() {
 
                                 <div className="flex flex-col py-3">
                                     <label htmlFor="bookAuthor">Author</label>
-                                    <input 
-                                        type="text" 
-                                        id="bookTitle" 
-                                        value={bookAuthor} 
+                                    <input
+                                        type="text"
+                                        id="bookTitle"
+                                        value={bookAuthor}
                                         className="rounded px-2 py-1 text-sm border-1 border-gray-400 w-65 focus:outline-none focus:shadow"
-                                        onChange={(e => setBookAuthor(e.target.value))} 
+                                        onChange={(e => setBookAuthor(e.target.value))}
                                     />
                                 </div>
 
                                 <div className="flex flex-col py-3">
                                     <label htmlFor="publishedYear">Published Year</label>
-                                    <input 
-                                        type="number" 
-                                        id="publishedYear" 
-                                        value={bookpublishedYear} 
+                                    <input
+                                        type="number"
+                                        id="publishedYear"
+                                        value={bookpublishedYear}
                                         className="rounded px-2 py-1 text-sm border-1 border-gray-400 w-65 focus:outline-none focus:shadow"
                                         onChange={(e => setBookPublishedYear(e.target.value))} />
                                 </div>

@@ -64,7 +64,7 @@ export function EditBook() {
     return (
         <>
             <div className="p-4">
-                <div className="flex p-4 pb-20 gap-x-6">
+                <div className="flex p-6 mb-20 gap-x-6 bg-gray-100">
                     <BackButton />
                     <h3 className="text-3xl">
                         Edit Book

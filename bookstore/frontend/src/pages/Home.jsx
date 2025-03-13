@@ -1,14 +1,13 @@
 import React from "react";
-import { Spinner } from "../components/Spinner";
+import axios from "axios";
+
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { MdDeleteOutline, MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
-import { AiOutlineEdit } from "react-icons/ai";
-import { BsInfoCircle } from "react-icons/bs";
-import { BookCard } from "./BookCard";
-import axios from "axios";
-import { DeleteModal } from "./DeleteModal";
-import {TableView} from "./TableView";
+import { MdOutlineAddBox } from "react-icons/md";
+
+
+import { Spinner } from "../components/Spinner";
+import { TableView } from "./TableView";
 import { CardView } from "./CardView";
 
 export function Home() {
@@ -36,18 +35,18 @@ export function Home() {
 
     return (
         <div className="p-4 px-8">
-            <div className="flex justify-between items-center py-4 px-6">
-                <div className="text-4xl font-sans py-4">Books List</div>
+            <div className="flex justify-between items-center py-4 px-6 bg-gray-100">
+                <div className="text-lg md:text-4xl font-sans py-4">Books List</div>
 
                 <div className="px-4 flex gap-x-4">
                     <button
-                        className="px-4 py-2 bg-sky-400 text-white hover:bg-white hover:text-sky-600 hover:outline hover:outline-sky-600 cursor-pointer rounded-lg"
+                        className="px-2 py-1 md:px-4 md:py-2 text-sm lg:text-lg bg-sky-400 text-white hover:bg-white hover:text-sky-600 hover:outline hover:outline-sky-600 cursor-pointer rounded-lg"
                         onClick={() => setDisplayType("table")}
                     >
                         Table
                     </button>
                     <button
-                        className="px-4 py-2 bg-sky-400 text-white hover:bg-white hover:text-sky-600 hover:outline hover:outline-sky-600 cursor-pointer rounded-lg"
+                        className="px-2 py-1 md:px-4 md:py-2 text-sm lg:text-lg bg-sky-400 text-white hover:bg-white hover:text-sky-600 hover:outline hover:outline-sky-600 cursor-pointer rounded-lg"
                         onClick={() => setDisplayType("card")}
                     >
                         Card

@@ -30,13 +30,13 @@ export function ShowBook() {
     return (
         <>
             <div className="p-4">
-                <div className="flex gap-x-6 p-4 pb-8">
+                <div className="flex gap-x-6 p-6 mb-16 bg-gray-100">
                     <BackButton />
                     <h3 className="text-3xl">
                         Show Book
                     </h3>
                 </div>
-                <div>
+                <div className="p-4">
                     {
                         isLoading ?
                             <div className="h-[60vh] items-center flex justify-center p-8"><Spinner /></div>
