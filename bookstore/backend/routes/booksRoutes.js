@@ -70,7 +70,7 @@ router.get('/:id', async (request, response) => {
 
 // Route for updating a Book Record
 
-router.put('/:id', async (request, response) => {
+router.put('/edit/:id', async (request, response) => {
     const { id } = request.params;
     try {
 
@@ -106,7 +106,7 @@ router.put('/:id', async (request, response) => {
 
 // Route for deleting a particular book record
 
-router.post('/:id/delete', async (request, response) => {
+router.post('/delete/:id', async (request, response) => {
     const { id } = request.params;
 
     try {
