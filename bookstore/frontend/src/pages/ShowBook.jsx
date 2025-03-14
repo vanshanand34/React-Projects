@@ -1,6 +1,6 @@
 import React from "react";
 import { BackButton } from "../components/BackButton";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Spinner } from "../components/Spinner";
@@ -8,6 +8,8 @@ import { Spinner } from "../components/Spinner";
 export function ShowBook() {
     const [book, setBook] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+
+    const navigate = useNavigate();
     const { id } = useParams();
 
     useEffect(() => {

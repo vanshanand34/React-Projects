@@ -5,9 +5,9 @@ import { AiOutlineEdit } from "react-icons/ai";
 import { MdDeleteOutline } from "react-icons/md";
 import { PiBookOpenTextLight } from "react-icons/pi"
 import { BiShow, BiUserCircle } from "react-icons/bi"
-import { BookModal } from "./BookModal";
+import { BookModal } from "./modals/BookModal";
 import { useState } from "react";
-import { DeleteModal } from "./DeleteModal";
+import { DeleteModal } from "./modals/DeleteModal";
 
 export function BookCard({ book }) {
     const [showModal, setShowModal] = useState(false);

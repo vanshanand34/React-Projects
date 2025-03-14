@@ -1,13 +1,18 @@
 import React from "react";
 import { BsArrowLeft } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-export function BackButton({destination = '/'}) {
+export function BackButton() {
+    const navigate = useNavigate();
     return (
         <div className="flex">
-            <Link to={destination} className="px-3 pt-2  text-white rounded bg-sky-600 w-fit md:text-2xl">
+            <div
+                onClick={() => navigate(-1)}
+                className="px-3 pt-2 text-white rounded
+                bg-sky-600 hover:bg-sky-800 w-fit md:text-2xl cursor-pointer"
+            >
                 <BsArrowLeft />
-            </Link>
+            </div>
         </div>
     )
 }

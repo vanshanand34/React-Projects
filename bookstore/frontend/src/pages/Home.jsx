@@ -6,8 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { MdOutlineAddBox } from "react-icons/md";
 
 import { Spinner } from "../components/Spinner";
-import { TableView } from "./TableView";
-import { CardView } from "./CardView";
+import { TableView } from "../components/TableView";
+import { CardView } from "../components/CardView";
 
 export function Home() {
     const [books, setBooks] = useState([]);

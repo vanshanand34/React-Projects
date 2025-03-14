@@ -5,7 +5,7 @@ import { MdDeleteOutline, MdOutlineAddBox, MdOutlineDelete } from "react-icons/m
 import { AiOutlineEdit } from "react-icons/ai";
 import { BsInfoCircle } from "react-icons/bs";
 import axios from "axios";
-import { DeleteModal } from "./DeleteModal";
+import { DeleteModal } from "./modals/DeleteModal";
 
 
 export function TableView({ books }) {
