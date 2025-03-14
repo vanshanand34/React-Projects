@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MdDeleteOutline, MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
@@ -16,6 +16,20 @@ export function TableView({ books }) {
 
     const tableCellStyle = "border border-slate-600 rounded-md text-center p-1";
     const tableCellStyleHidden = `${tableCellStyle} max-md:hidden`;
+
+    useEffect( () => {
+        
+        function handleKeyEvent(e){
+            e.preventDefault();
+            console.log(e);
+            if( e.key == "Escape" ){
+                setDeleteBookId(0);
+            }
+        }
+
+        window.addEventListener('keydown', handleKeyEvent);
+
+    })
 
     return (
         <>
