@@ -30,9 +30,9 @@ export function ShowBook() {
     return (
         <>
             <div className="p-4">
-                <div className="flex gap-x-6 p-6 mb-16 bg-gray-100">
+                <div className="flex gap-x-6 p-6 mb-28 bg-sky-300">
                     <BackButton />
-                    <h3 className="text-3xl">
+                    <h3 className="text-lg md:text-3xl">
                         Show Book
                     </h3>
                 </div>
@@ -43,23 +43,23 @@ export function ShowBook() {
                             :
                             <div className="border border-blue-700 p-4 rounded-lg w-fit mx-auto">
                                 <div className="p-2">
-                                    <span className="text-gray-500 px-3 text-lg">ID :</span>
+                                    <span className="text-gray-500 px-3 md:text-lg">ID :</span>
                                     <span>{book._id}</span>
                                 </div>
                                 <div className="p-2">
-                                    <span className="text-gray-500 px-3 text-lg">Title :</span>
+                                    <span className="text-gray-500 px-3 md:text-lg">Title :</span>
                                     <span>{book.title}</span>
                                 </div>
                                 <div className="p-2">
-                                    <span className="text-gray-500 px-3 text-lg">Author :</span>
+                                    <span className="text-gray-500 px-3 md:text-lg">Author :</span>
                                     <span>{book.author}</span>
                                 </div>
                                 <div className="p-2">
-                                    <span className="text-gray-500 px-3 text-lg">Published Year :</span>
+                                    <span className="text-gray-500 px-3 md:text-lg">Published Year :</span>
                                     <span>{book.publishedYear}</span>
                                 </div>
                                 <div className="p-2">
-                                    <span className="text-gray-500 px-3 text-lg">Created At :</span>
+                                    <span className="text-gray-500 px-3 md:text-lg">Created At :</span>
                                     <span>{new Date(book.createdAt).toLocaleDateString()}</span>
                                 </div>
                             </div>

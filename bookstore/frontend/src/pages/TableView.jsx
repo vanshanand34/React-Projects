@@ -19,8 +19,8 @@ export function TableView({ books }) {
 
     return (
         <>
-            <table className="w-full border-separate border-spacing-2 p-4">
-                <thead>
+            <table className="w-full border-separate border-spacing-2 p-4 text-xs md:text-base">
+                <thead className="text-sm md:text-base">
                     <tr>
                         <th className={tableStyle}>No</th>
                         <th className={tableStyle}>Title</th>
@@ -37,22 +37,22 @@ export function TableView({ books }) {
                             <td className={tableCellStyleHidden}>{book.author}</td>
                             <td className={tableCellStyleHidden}>{book.publishedYear}</td>
                             <td className={tableCellStyle}>
-                                <div className="flex justify-center items-center gap-x-4">
+                                <div className="flex justify-center items-center gap-x-1 md:gap-x-4">
 
                                     <Link to={`books/show/${book._id}`}>
                                         <BsInfoCircle
-                                            className="text-xl text-slate-900 hover:-translate-y-0.5"
+                                            className="md:text-xl text-slate-900 hover:-translate-y-0.5"
                                         />
                                     </Link>
 
                                     <Link to={`books/edit/${book._id}`}>
                                         <AiOutlineEdit
-                                            className="text-xl text-blue-700 hover:-translate-y-0.5"
+                                            className="md:text-xl text-blue-700 hover:-translate-y-0.5"
                                         />
                                     </Link>
 
                                     <MdDeleteOutline
-                                        className="text-xl text-red-500 cursor-pointer hover:-translate-y-0.5"
+                                        className="md:text-xl text-red-500 cursor-pointer hover:-translate-y-0.5"
                                         onClick={() => setDeleteBookId(book._id)}
                                     />
                                 </div>

@@ -14,7 +14,7 @@ export function BookCard({ book }) {
     const [showDeleteModal, setShowDeleteModal] = useState(false);
 
     return (
-        <div className="border border-gray-600 p-2 py-6 rounded-lg mx-auto shadow-lg">
+        <div className="border border-gray-600 p-4 py-6 rounded-lg mx-auto shadow-lg text-sm md:text-base">
             <div className="flex justify-between items-center pb-4 gap-x-4 text-sm md:text-md">
                 <div className="text-gray-500">{book._id}</div>
                 <button className="bg-red-200 rounded-lg px-2">{book.publishedYear}</button>

@@ -27,15 +27,15 @@ export function DeleteModal({ bookId, onClose }) {
                 className="p-2 w-[60vw] md:w-[30vw] text-xs 
                 lg:text-lg rounded-lg bg-white border border-sky-400 "
             >
-                <div className="flex justify-end gap-2 border-b-1 border-gray-400 pb-2">
+                <div className="flex justify-end gap-2 border-b-1 border-gray-400 pb-1">
                     <div
-                        className="text-red-500 hover:text-red-700 text-3xl cursor-pointer px-2"
+                        className="text-red-500 hover:text-red-700 text-xl md:text-3xl cursor-pointer px-2"
                         onClick={onClose}
                     >
                         &times;
                     </div>
                 </div>
-                <div className="text-center p-6 text-xl">
+                <div className="text-center p-6 md:text-xl">
                     Are you sure you want to delete this book record?
                 </div>
                 <div className="flex justify-center items-center p-2 gap-x-4">
