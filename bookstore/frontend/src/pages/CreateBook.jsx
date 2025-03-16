@@ -4,11 +4,12 @@ import { Spinner } from "../components/Spinner";
 import { BackButton } from "../components/BackButton";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { enqueueSnackbar } from "notistack";
 
 export function CreateBook() {
     const [bookTitle, setBookTitle] = useState("");
     const [bookAuthor, setBookAuthor] = useState("");
-    const [bookpublishedYear, setBookPublishedYear] = useState(null);
+    const [bookpublishedYear, setBookPublishedYear] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
@@ -28,9 +29,12 @@ export function CreateBook() {
                 console.log(res);
                 setIsLoading(false);
                 navigate('/');
+                enqueueSnackbar("Book Created Successfully", { variant: 'success' });
             }).catch(err => {
                 console.log(err);
-                alert("Some error occurred while creating the record, please try again!")
+                enqueueSnackbar("Some error occurred while creating the record, please try again!",
+                    { variant: 'error' }
+                );
                 setIsLoading(false);
             })
 
