@@ -16,10 +16,10 @@ export function BookCard({ book }) {
     useEffect(() => {
 
         function handleKeyEvent(e) {
-            e.preventDefault();
             console.log(e);
             if (e.key == "Escape") {
                 setShowModal(false);
+                setShowDeleteModal(false);
             }
         }
 

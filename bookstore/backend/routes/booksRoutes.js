@@ -7,17 +7,18 @@ const router = express.Router();
 
 router.post('/', async (request, response) => {
     try {
-        if (!request.body?.title || !request.body?.author || !request.body?.publishedYear) {
-            return response.status(400).json({
-                "error": "Send all the required fields: title, author, publishedYear"
-            });
-        }
-        const newBook = {
+
+        const createBookPayload = {
             title: request.body.title,
             author: request.body.author,
-            publishedYear: request.body.publishedYear
+            genre: request.body.genre,
+            price: request.body.price,
+            stock: request.body.stock,
+            rating: request.body.rating
         }
-        const book = await Book.create(newBook);
+
+        const book = await Book.create(createBookPayload);
+        console.log(book)
         return response.status(201).send(book);
 
     } catch (err) {
@@ -74,12 +75,6 @@ router.put('/edit/:id', async (request, response) => {
     const { id } = request.params;
     try {
 
-        if (!request.body?.title || !request.body?.author || !request.body?.publishedYear) {
-            return response.status(400).json({
-                "error": "Send all the required fields: title, author, publishedYear"
-            });
-        }
-
         const book = await Book.findByIdAndUpdate(id, request.body);
 
         if (!book) {
@@ -106,7 +101,7 @@ router.put('/edit/:id', async (request, response) => {
 
 // Route for deleting a particular book record
 
-router.post('/delete/:id', async (request, response) => {
+router.delete('/delete/:id', async (request, response) => {
     const { id } = request.params;
 
     try {
