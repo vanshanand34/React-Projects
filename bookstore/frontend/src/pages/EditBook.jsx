@@ -4,6 +4,7 @@ import { Spinner } from "../components/Spinner";
 import { BackButton } from "../components/BackButton";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { enqueueSnackbar } from "notistack";
 
 export function EditBook() {
 
@@ -52,10 +53,11 @@ export function EditBook() {
                 console.log(res);
                 setIsLoading(false);
                 navigate('/');
+                enqueueSnackbar("Book Modified successfully", { variant: 'success' })
             }).catch(err => {
                 console.log(err);
-                alert("Some error occurred while creating the record, please try again!")
                 setIsLoading(false);
+                enqueueSnackbar("Some error occurred while creating the record, please try again!", { variant: 'error' })
             })
 
     }
@@ -105,7 +107,7 @@ export function EditBook() {
                                         id="publishedYear"
                                         value={bookpublishedYear}
                                         className="rounded px-2 py-1 text-sm border-1 border-gray-400 w-65 focus:outline-none focus:shadow"
-                                        onChange={(e => setBookPublishedYear(e.target.value))} />
+                                        onChange={(e => setBookPublishedYear(e.target.valueAsNumber))} />
                                 </div>
                                 <div className="pt-6 pb-4">
                                     <button className="outline-1 outline-sky-600 py-1 w-full hover:bg-sky-500 hover:outline-none hover:text-white cursor-pointer" type="submit">Save</button>
