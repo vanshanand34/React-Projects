@@ -4,45 +4,54 @@
 import mongoose from "mongoose";
 
 const bookSchema = mongoose.Schema(
-    {
-        title: {
-            type: String,
-            required: true,
-        },
-        author: {
-            type: String,
-            required: true,
-        },
-        genre: {
-            type: String,
-            required: true,
-            enum: ['Fiction', 'Non-Fiction', 'Self-Help', 'Mystery', 'Science Fiction', 'Biography', 'Romance', 'Thriller']
-        },
-        price: {
-            type: Number,
-            required: true,
-            min: 0
-        },
-        stock: {
-            type: Number,
-            required: true,
-            min: 0,
-            default: 0
-        },
-        rating: {
-            type: Number,
-            required: true,
-            min: 0,
-            max: 5,
-            default: 0
-        }
+  {
+    title: {
+      type: String,
+      required: true,
     },
-    {
-        timestamps: true,
-    }
+    author: {
+      type: String,
+      required: true,
+    },
+    genre: {
+      type: String,
+      required: true,
+      enum: [
+        "Fiction",
+        "Non-Fiction",
+        "Self-Help",
+        "Mystery",
+        "Science Fiction",
+        "Biography",
+        "Romance",
+        "Thriller",
+      ],
+    },
+    price: {
+      type: Number,
+      required: true,
+      min: 0,
+    },
+    stock: {
+      type: Number,
+      required: true,
+      min: 0,
+      default: 0,
+    },
+    rating: {
+      type: Number,
+      required: true,
+      min: 0,
+      max: 5,
+      default: 0,
+    },
+  },
+  {
+    timestamps: true,
+  },
 );
 
-export const Book = mongoose.model('Book', bookSchema);
+export const Book = mongoose.model("Book", bookSchema);
 
 /* 
 CHANGES MADE TO THE BOOK MODEL:
