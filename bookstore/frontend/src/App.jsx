@@ -6,7 +6,6 @@ import { EditBook } from "./pages/EditBook";
 import { CreateBook } from "./pages/CreateBook";
 import { ShowBook } from "./pages/ShowBook";
 import "./index.css";
-import BookstoreApp from "./pages/latest";
 import { DeleteBook } from "./pages/DeleteBook";
 
 function App() {
